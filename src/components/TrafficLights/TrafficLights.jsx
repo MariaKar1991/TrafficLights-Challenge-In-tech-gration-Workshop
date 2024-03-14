@@ -21,7 +21,7 @@ export default function TrafficLights() {
     activateCurrentState(); // Activate the new state
   }
 
-  // Call the function to activate the initial state with a slight delay
+  // Call the function to activate the initial state with a slight delay, after the component has been rendered
   setTimeout(activateCurrentState, 0);
 
   return (
