@@ -21,13 +21,8 @@ export default function UseStateTrafficLights() {
   };
 
   // Start the timer when the component mounts
-  const timerRef = startTimer();
-
-  // Cleanup interval on component unmount
   // eslint-disable-next-line no-unused-vars
-  const cleanup = () => {
-    clearInterval(timerRef); // Clear the interval when the component unmounts
-  };
+  const timerRef = startTimer();
 
   return (
     <>
