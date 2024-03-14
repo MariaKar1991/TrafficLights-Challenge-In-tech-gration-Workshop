@@ -1,6 +1,6 @@
 import "./TrafficLights.css";
 
-// Grrek TrafficLights without the useState Hook
+// Greek TrafficLights without the useState Hook
 export default function TrafficLights() {
   let currentState = 0; // Initial state index
   const colors = ["red", "orange", "green"]; // Array of colors
