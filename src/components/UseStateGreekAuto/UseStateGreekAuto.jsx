@@ -2,7 +2,7 @@ import "./UseStateGreekAuto.css";
 import { useState } from "react";
 
 // Automatic(timer-based) TrafficLights using useState Hook
-export default function UseStateTrafficLights() {
+export default function UseStateGreekAuto() {
   const [currentColor, setCurrentColor] = useState("red"); // Define state variable for current color
   const colors = ["red", "orange", "green"]; // Array of available colors
 
