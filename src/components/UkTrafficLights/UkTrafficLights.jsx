@@ -8,13 +8,13 @@ export default function UkTrafficLights() {
 
   // Function to transition to the next color
   const transition = () => {
-    setCurrentColor((currentColor + 1) % 5); // Update current color index cyclically
+    setCurrentColor((currentColor) => (currentColor + 1) % 5); // Update current color index cyclically
   };
 
   return (
     <>
       {/* Traffic light elements */}
-     <h1>UK TrafficLights using useState Hook</h1>
+      <h1>UK TrafficLights using useState Hook</h1>
       <div
         id="red"
         className={`sign ${
@@ -31,7 +31,7 @@ export default function UkTrafficLights() {
         id="green"
         className={`sign ${currentColor === 2 ? "active" : ""}`}
       ></div>
-       {/* Button to trigger state transition */}
+      {/* Button to trigger state transition */}
       <button onClick={transition}>Next State</button>
     </>
   );
