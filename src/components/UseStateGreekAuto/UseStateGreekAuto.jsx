@@ -1,28 +1,30 @@
 import "./UseStateGreekAuto.css";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 // Automatic(timer-based) TrafficLights using useState Hook
 export default function UseStateGreekAuto() {
   const [currentColor, setCurrentColor] = useState("red"); // Define state variable for current color
   const colors = ["red", "orange", "green"]; // Array of available colors
+  const timerRef = useRef(null); // Ref to store the timer reference
 
-  // Function to start the timer for automatic color change
-  const startTimer = () => {
-    // Set interval to change color every 5 seconds
-    const timer = setInterval(() => {
-      const currentIndex = colors.indexOf(currentColor); // Get index of current color
-      const nextIndex = (currentIndex + 1) % colors.length; // Calculate index of next color cyclically
-      const nextColor = colors[nextIndex]; // Get next color from colors array
+  useEffect(() => {
+    // Function to start the timer for automatic color change
+    const startTimer = () => {
+      // Set interval to change color every 5 seconds
+      timerRef.current = setInterval(() => {
+        setCurrentColor(
+          (prevColor) => colors[(colors.indexOf(prevColor) + 1) % colors.length]
+        );
+      }, 5000); // Change color every 5 seconds
+    };
 
-      setCurrentColor(nextColor); // Update current color
-    }, 5000); // Change color every 5 seconds
+    startTimer(); // Start the timer when the component mounts
 
-    return timer; // Return reference to the timer
-  };
-
-  // Start the timer when the component mounts
-  // eslint-disable-next-line no-unused-vars
-  const timerRef = startTimer();
+    return () => {
+      clearInterval(timerRef.current); // Clear the timer when the component unmounts
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentColor]); // Run effect when currentColor changes
 
   return (
     <>
