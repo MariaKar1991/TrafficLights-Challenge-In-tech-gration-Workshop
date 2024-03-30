@@ -2,6 +2,7 @@
 
 # TrafficLights Project(Challenge)
 TrafficLights Project as part of the In-tech-gration Workshop! In this project(challenge), I implemented different versions of traffic lights using React. 
+In-tech-gration Workshop: https://www.linkedin.com/feed/update/urn:li:activity:7168703137124343808/
 
 - Greek TrafficLights without useState Hook: a traffic lights component manually managing state transitions without using the useState hook.
 
